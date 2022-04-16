@@ -43,36 +43,46 @@ struct Node* groupingLinkedLists(struct Node* root){
     struct Node* odd = NULL;
     struct Node* even = NULL;
 
-    // Build new linked List of odd elements
+    // Build new linked List of odd & even elements
     while (root != NULL)
     {
-        if (/* condition */)
-        {
-            /* code */
+        int value = root->data;
+        if (value %2 != 0){
+            odd = insertList(odd, value);
         }
-        
-        insertList(odd, root->data);
+        else {even = insertList(even, value);}
         root = root->next;
-        if (root != NULL) {printf(", ");}
-        
     }
 
-    // Build new linked List of even elements
-
-    // attach even list to odd list
+    // Attach even list to odd list
+    if (odd == NULL) {odd = even;}
+    else{
+        struct Node* q = odd;
+        while (q->next != NULL) {q = q->next;}
+        q->next = even;
+    }
+    
+    return odd;
 }
 
 int main(){
 
     head = insertList(head, 8);
     insertList(head, 3);
-    insertList(head, 42);
+    insertList(head, 2);
     insertList(head, 9);
+    insertList(head, 4);
+    insertList(head, 5);
+    insertList(head, 6);
 
     // printf("%d\n", head->data);
     // printf("%d\n", head->next->data);
 
     displayList(head);
+
+    head = groupingLinkedLists(head);
+    displayList(head);
+    
 
     return 0;
 }
