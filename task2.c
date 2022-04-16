@@ -46,10 +46,10 @@ struct Node* groupingLinkedLists(struct Node* root){
     // Build new linked List of odd elements
     while (root != NULL)
     {
-        // if (/* condition */)
-        // {
-        //     /* code */
-        // }
+        if (/* condition */)
+        {
+            /* code */
+        }
         
         insertList(odd, root->data);
         root = root->next;
