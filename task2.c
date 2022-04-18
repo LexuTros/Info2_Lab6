@@ -75,9 +75,6 @@ int main(){
     insertList(head, 5);
     insertList(head, 6);
 
-    // printf("%d\n", head->data);
-    // printf("%d\n", head->next->data);
-
     displayList(head);
 
     head = groupingLinkedLists(head);
